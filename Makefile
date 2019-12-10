@@ -16,5 +16,10 @@ run: .log
 .log:
 	mkdir -p $@
 
+echo-all: echo echo-json
+
 echo: .log
 	echo "$(shell date '+%Y-%m-%dT%H:%M:%S%z'): Hello New Relic Logs!" >> $</hello.log
+
+echo-json: .log
+	cat hello.json >> $</hello-json.log
